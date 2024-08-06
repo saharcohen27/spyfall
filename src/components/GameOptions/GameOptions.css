@@ -1,0 +1,43 @@
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 10vh;
+}
+
+.game-option {
+  border: 0;
+  background: hsla(265, 53%, 29%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(265, 53%, 29%, 1) 0%,
+    hsla(24, 93%, 73%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(265, 53%, 29%, 1) 0%,
+    hsla(24, 93%, 73%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(265, 53%, 29%, 1) 0%,
+    hsla(24, 93%, 73%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#432371", endColorstr="#FAAE7B", GradientType=1 );
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1rem;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.btn-txt {
+  margin: 0 0.5rem;
+}
+
+a {
+  text-decoration: none;
+}

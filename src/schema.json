@@ -1,0 +1,20 @@
+{
+  "gameOptions": [
+    {
+      "name": "Single Device",
+      "link": "/single",
+      "icon": {
+        "iconName": "SmartphoneIcon",
+        "iconFont": "large"
+      }
+    },
+    {
+      "name": "Create Room",
+      "link": "/multiple",
+      "icon": {
+        "iconName": "GroupsIcon",
+        "iconFont": "large"
+      }
+    }
+  ]
+}
