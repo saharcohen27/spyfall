@@ -1,6 +1,6 @@
 import GroupsIcon from "@mui/icons-material/Groups";
 import SmartphoneIcon from "@mui/icons-material/Smartphone";
-import React, { ReactElement, ReactHTMLElement, useMemo } from "react";
+import React, { ReactElement, useMemo } from "react";
 import "./GameOptions.css";
 import { useTranslation } from "react-i18next";
 import schema from "../../schema.json";
