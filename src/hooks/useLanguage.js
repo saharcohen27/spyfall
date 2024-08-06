@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 export const useLanguage = () => {
   const [isEn, setIsEn] = useState(true);
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   useEffect(() => {
     i18n.changeLanguage(isEn ? "en" : "he");
@@ -17,6 +17,7 @@ export const useLanguage = () => {
   }, [i18n, i18n.language]);
 
   const changeLanguage = (value) => setIsEn(value);
+  const translate = (text) => t(text);
 
-  return { isEn, changeLanguage };
+  return { isEn, changeLanguage, translate };
 };
