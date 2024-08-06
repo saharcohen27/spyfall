@@ -1,0 +1,27 @@
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:1rem;
+  -webkit-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 6px 5px rgba(0,0,0,0.3);
+}
+
+.logo {
+  width: 10%;
+  height: 10%;
+  max-width: 5rem;
+  max-height: 5rem;
+}
+
+.game-name {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+
+a {
+  text-decoration: none;
+  color:black;
+}
