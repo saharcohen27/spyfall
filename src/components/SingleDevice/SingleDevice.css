@@ -26,65 +26,7 @@
   font-size: 1.5rem;
 }
 
-.setting {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  justify-content: space-around;
-}
-.inc {
-  background-color:rgba(0, 128, 0, 0.35);
-}
-.dec {
-  background-color:rgba(255, 0, 0, 0.35);
-}
-.inc:hover {
-  background-color:rgba(0, 128, 0, 0.85);
-}
-.dec:hover {
-  background-color:rgba(255, 0, 0, 0.85);
-}
-.change-btn {
-  border-radius: 50%;
-}
-.change-btn:hover{
-  cursor:pointer;
-}
-
-.setting-label {
-  display: flex;
-  font-weight: bold;
-  justify-content: space-around;
-  width: 10vw;
-  min-width: 150px;
-}
-
-.setting-area{
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  justify-content: space-between;
-  width: 15vw;
-  max-width: 100px;
-}
-
 .single-device-container > a {
   text-decoration: none;
   color:white;
-}
-
-.start-game-btn {
-  width: 10vw;
-  min-width: 100px;
-  margin: auto;
-  font-size: 1rem;
-  padding:0.5rem;
-  border-radius: 12px;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.start-game-btn:hover {
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.4);
-
 }

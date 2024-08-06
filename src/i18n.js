@@ -14,7 +14,10 @@ const resources = {
       "Game Settings": "הגדרות משחק",
       "Total players": "כמות שחקנים",
       "Total agents": "כמות סוכנים",
-      "Start Game": "התחל משחק"
+      "Start Game": "התחל משחק",
+      "Would you find the Agent?":"תצליחו למצוא את הסוכן?",
+      "Player":"שחקן",
+      "Start New Game":"התחל משחק חדש"
     }
   }
 };
