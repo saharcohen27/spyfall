@@ -1,42 +1,53 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import SingleDeviceSettings from '../SingleDeviceSettings/SingleDeviceSettings';
-import SingleDeviceGame from '../SingleDeviceGame/SingleDeviceGame'
-import './SingleDevice.css'
+import SingleDeviceSettings from "../SingleDeviceSettings/SingleDeviceSettings";
+import SingleDeviceGame from "../SingleDeviceGame/SingleDeviceGame";
+import "./SingleDevice.css";
 
 function SingleDevice() {
   const [players, setPlayers] = useState(3);
   const [agents, setAgents] = useState(1);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(true)
+  const [isSettingsOpen, setIsSettingsOpen] = useState(true);
 
   const updateAgents = (chg) => {
     if (agents + chg === 0 || agents + chg === 17) return;
     if (agents + chg > players) return;
-    setAgents(prev => prev + chg )
-  } 
+    setAgents((prev) => prev + chg);
+  };
 
   const updatePlayers = (chg) => {
     if (players + chg === 0 || players + chg === 17) return;
     if (agents > players + chg) return;
-    setPlayers(prev => prev + chg)
-  } 
+    setPlayers((prev) => prev + chg);
+  };
 
   const startGame = () => {
-    setIsSettingsOpen(false)
-  }
-  
+    setIsSettingsOpen(false);
+  };
+
   const openSettings = () => {
-    setIsSettingsOpen(true)
-  }
+    setIsSettingsOpen(true);
+  };
 
   if (isSettingsOpen) {
     return (
-      <SingleDeviceSettings agents={agents} players={players} updatePlayers={updatePlayers} updateAgents={updateAgents} startGame={startGame}/>
+      <SingleDeviceSettings
+        agents={agents}
+        players={players}
+        updatePlayers={updatePlayers}
+        updateAgents={updateAgents}
+        startGame={startGame}
+      />
     );
   }
 
-  return <SingleDeviceGame agents={agents} players={players} openSettings={openSettings}/>
-  
+  return (
+    <SingleDeviceGame
+      agents={agents}
+      players={players}
+      openSettings={openSettings}
+    />
+  );
 }
 
 export default SingleDevice;
