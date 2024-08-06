@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 
 function Home() {
   const { t } = useTranslation();
-  console.log(t("Single Device"));
   return (
     <div className="home-container">
       <div className="question-title">{t("How Would You Like to Play?")}</div>
