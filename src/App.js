@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import Home from './components/Home/Home';
-import NotFound from './components/NotFound/NotFound';
-import NavBar from './components/NavBar/NavBar';
-import SingleDevice from './components/SingleDevice/SingleDevice';
+import Home from "./components/Home/Home";
+import NotFound from "./components/NotFound/NotFound";
+import NavBar from "./components/NavBar/NavBar";
+import SingleDevice from "./components/SingleDevice/SingleDevice";
 
 function App() {
   return (

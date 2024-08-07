@@ -1,21 +1,21 @@
-import { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
-import './SingleDeviceGame.css'
+import "./SingleDeviceGame.css"
 
-import OptionCard from '../OptionsCard/OptionsCard'
-import SettingsIcon from '@mui/icons-material/Settings';
-import RolePopUp from '../RolePopUp/RolePopUp';
+import OptionCard from "../OptionsCard/OptionsCard"
+import SettingsIcon from "@mui/icons-material/Settings";
+import RolePopUp from "../RolePopUp/RolePopUp";
 
-import getPlace from '../../services/GeminiService';
+import getPlace from "../../services/GeminiService";
 
 function SingleDeviceGame({players, spies, openSettings}) {
   const { t, i18n} = useTranslation();
-  const [options, setOptions] = useState(Array(players).fill({role:'Player', opened:false}));
+  const [options, setOptions] = useState(Array(players).fill({role:"Player", opened:false}));
   const [gameCount, setGameCount] = useState(0);
-  const [openedRole, setOpenedRole] = useState('')
+  const [openedRole, setOpenedRole] = useState("")
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
-  const [place, setPlace] = useState('');
+  const [place, setPlace] = useState("");
 
   useEffect(() => {
     setPlace(t("Loading..."))
@@ -28,8 +28,8 @@ function SingleDeviceGame({players, spies, openSettings}) {
       const randomIndex = Math.floor(Math.random() * players);
 
       // If the randomly selected position is not already an spy, assign an spy
-      if (optionsCopy[randomIndex].role !== 'Spy') {
-        optionsCopy[randomIndex] = {role:'Spy', opened:false}
+      if (optionsCopy[randomIndex].role !== "Spy") {
+        optionsCopy[randomIndex] = {role:"Spy", opened:false}
         spyCount--;
       }
     }
@@ -71,7 +71,7 @@ function SingleDeviceGame({players, spies, openSettings}) {
       </div>
 
       <div className="start-game-btn" onClick={() => {
-        setOptions(Array(players).fill({role:'Player', opened:false}))
+        setOptions(Array(players).fill({role:"Player", opened:false}))
         setGameCount(prev => prev + 1)
         }}>{t("Start New Game")}</div>
 

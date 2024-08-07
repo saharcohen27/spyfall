@@ -1,7 +1,7 @@
 // src/i18n.js
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
 
 // Translation resources
 const resources = {
@@ -19,7 +19,7 @@ const resources = {
       "Would you find the Spy?":"תצליחו למצוא את הסוכן?",
       "Player":"שחקן",
       "Start New Game":"התחל משחק חדש",
-      "You're The Spy": "את/ה הסוכן",
+      "You're The Spy": "את/ה הסוכנ/ת",
       "Loading...":"טוען...",
       "404 Not Found / How did you get here?": "שגיאת 404 / איך הגעת לפה?",
       "Go Home": "חזור לדף הבית",
