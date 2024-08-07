@@ -26,7 +26,7 @@ function NavBar() {
   return (
 
     <header className="navbar-container">
-      <div onClick={()=>changeLanguage()}><LanguageIcon fontSize='large'/></div>
+      <div className="lang-icon" onClick={()=>changeLanguage()}><LanguageIcon fontSize='large'/></div>
       <Link to='/'>
         <div className="game-name">{t("The Agent")} 🕵️</div>
       </Link>

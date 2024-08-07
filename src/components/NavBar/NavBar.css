@@ -25,3 +25,7 @@ a {
   text-decoration: none;
   color:black;
 }
+
+.lang-icon:hover {
+  cursor: pointer;
+}

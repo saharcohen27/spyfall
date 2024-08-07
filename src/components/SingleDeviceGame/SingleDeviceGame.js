@@ -5,13 +5,20 @@ import './SingleDeviceGame.css'
 
 import OptionCard from '../OptionsCard/OptionsCard'
 import SettingsIcon from '@mui/icons-material/Settings';
+import RolePopUp from '../RolePopUp/RolePopUp';
+
+import getPlace from '../../services/GeminiService';
 
 function SingleDeviceGame({players, agents, openSettings}) {
-  const { t } = useTranslation();
+  const { t, i18n} = useTranslation();
   const [options, setOptions] = useState(Array(players).fill({role:'Player', opened:false}));
   const [gameCount, setGameCount] = useState(0);
+  const [openedRole, setOpenedRole] = useState('')
+  const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+  const [place, setPlace] = useState('');
 
   useEffect(() => {
+    setPlace(t("Loading..."))
     // Create a copy of the options array to work with
     let optionsCopy = [...options];
     let agentCount = agents;
@@ -29,17 +36,28 @@ function SingleDeviceGame({players, agents, openSettings}) {
 
     // Update the options state with the new array
     setOptions(optionsCopy);
-    console.log(optionsCopy)
+    getPlace(i18n.language).then(res => 
+      setPlace(res)
+    ); 
+    
   }, [gameCount]);
 
   const openCard = index => {
+    if (options[index - 1].opened) return;
     let optionsCopy = [...options];
     optionsCopy[index - 1] = {...optionsCopy[index - 1], opened:true}
     setOptions(optionsCopy)
-    alert(optionsCopy[index - 1].role)
+    setOpenedRole(optionsCopy[index - 1].role)
+    setIsPopUpOpen(true);
+  }
+
+  const handleClose = () =>{
+    setIsPopUpOpen(false);
   }
 
   return (
+    <>
+    {isPopUpOpen && <RolePopUp value={openedRole} handleClose={handleClose} place={place}/>}
     <div className="single-device-game-container">
       <div className="title with-setting-icon">
         <div className="title-txt">{t("Would you find the Agent?")}</div>
@@ -58,6 +76,8 @@ function SingleDeviceGame({players, agents, openSettings}) {
         }}>{t("Start New Game")}</div>
 
     </div>
+    </>
+    
   );
 }
 
