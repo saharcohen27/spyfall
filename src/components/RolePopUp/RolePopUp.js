@@ -13,8 +13,8 @@ function RolePopUp({status, value, handleClose, place}) {
       <div className="popup">
           <button className="close-btn" onClick={handleClose}>×</button>
           <div className="popup-content">
-              {value === 'Agent' ? (
-                <h1>{t("You're The Agent")}</h1>
+              {value === 'Spy' ? (
+                <h1>{t("You're The Spy")}</h1>
               ) : (
                   <h1>{place}</h1>
               )}

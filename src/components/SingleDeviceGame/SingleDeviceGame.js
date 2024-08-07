@@ -9,7 +9,7 @@ import RolePopUp from '../RolePopUp/RolePopUp';
 
 import getPlace from '../../services/GeminiService';
 
-function SingleDeviceGame({players, agents, openSettings}) {
+function SingleDeviceGame({players, spies, openSettings}) {
   const { t, i18n} = useTranslation();
   const [options, setOptions] = useState(Array(players).fill({role:'Player', opened:false}));
   const [gameCount, setGameCount] = useState(0);
@@ -21,16 +21,16 @@ function SingleDeviceGame({players, agents, openSettings}) {
     setPlace(t("Loading..."))
     // Create a copy of the options array to work with
     let optionsCopy = [...options];
-    let agentCount = agents;
+    let spyCount = spies;
 
-    while (agentCount > 0) {
+    while (spyCount > 0) {
       // Get a random index
       const randomIndex = Math.floor(Math.random() * players);
 
-      // If the randomly selected position is not already an agent, assign an agent
-      if (optionsCopy[randomIndex].role !== 'Agent') {
-        optionsCopy[randomIndex] = {role:'Agent', opened:false}
-        agentCount--;
+      // If the randomly selected position is not already an spy, assign an spy
+      if (optionsCopy[randomIndex].role !== 'Spy') {
+        optionsCopy[randomIndex] = {role:'Spy', opened:false}
+        spyCount--;
       }
     }
 
@@ -60,7 +60,7 @@ function SingleDeviceGame({players, agents, openSettings}) {
     {isPopUpOpen && <RolePopUp value={openedRole} handleClose={handleClose} place={place}/>}
     <div className="single-device-game page-container">
       <div className="title with-setting-icon">
-        <div className="title-txt">{t("Would you find the Agent?")}</div>
+        <div className="title-txt">{t("Would you find the Spy?")}</div>
         <div className="setting-icon">
           <SettingsIcon onClick={() => openSettings()}/>
         </div>

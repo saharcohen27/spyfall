@@ -16,7 +16,7 @@ function NavBar() {
         <LanguageIcon fontSize="large" />
       </div>
       <Link to="/">
-        <div className="game-name">{translate("The Agent")} 🕵️</div>
+        <div className="game-name">{translate("Spyfall")} 🕵️</div>
       </Link>
       <img className="logo" src={logo} />
     </header>
