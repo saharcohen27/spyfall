@@ -58,7 +58,7 @@ function SingleDeviceGame({players, agents, openSettings}) {
   return (
     <>
     {isPopUpOpen && <RolePopUp value={openedRole} handleClose={handleClose} place={place}/>}
-    <div className="single-device-game-container">
+    <div className="single-device-game page-container">
       <div className="title with-setting-icon">
         <div className="title-txt">{t("Would you find the Agent?")}</div>
         <div className="setting-icon">

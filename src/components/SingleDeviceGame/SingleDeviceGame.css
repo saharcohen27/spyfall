@@ -1,4 +1,4 @@
-.single-device-game-container {
+.single-device-game, .page-container {
   background: linear-gradient(90deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
   background: -moz-linear-gradient(90deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
   background: -webkit-linear-gradient(90deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
@@ -30,6 +30,7 @@
   align-items: center;
   margin-bottom: 2rem;
 }
+
 .title-txt{
   font-size: 1.3rem;
 }

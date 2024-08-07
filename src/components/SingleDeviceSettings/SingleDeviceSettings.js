@@ -11,7 +11,7 @@ function SingleDeviceSettings({agents, players, updateAgents, updatePlayers, sta
   const { t } = useTranslation();
 
   return (
-    <div className="settings-container">
+    <div className="settings-container page-container">
       <div className="title">{t("Game Settings")}</div>
       <div className='setting'>
         <label className='setting-label'><PeopleIcon/>{t("Total players")}:</label>
