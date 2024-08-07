@@ -11,6 +11,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/spyfall" element={<Home />} />
         <Route path="/single" element={<SingleDevice />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

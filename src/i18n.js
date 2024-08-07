@@ -22,6 +22,8 @@ const resources = {
       "Loading...":"טוען...",
       "404 Not Found / How did you get here?": "שגיאת 404 / איך הגעת לפה?",
       "Go Home": "חזור לדף הבית",
+      "Add Places": "הוסף מקומות",
+      "Add": "הוסף",
     }
   }
 };

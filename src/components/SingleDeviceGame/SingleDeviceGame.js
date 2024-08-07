@@ -9,7 +9,7 @@ import RolePopUp from "../RolePopUp/RolePopUp";
 
 import getPlace from "../../services/GeminiService";
 
-function SingleDeviceGame({players, spies, openSettings}) {
+function SingleDeviceGame({players, spies, openSettings, addedPlaces}) {
   const { t, i18n} = useTranslation();
   const [options, setOptions] = useState(Array(players).fill({role:"Player", opened:false}));
   const [gameCount, setGameCount] = useState(0);
@@ -36,11 +36,22 @@ function SingleDeviceGame({players, spies, openSettings}) {
 
     // Update the options state with the new array
     setOptions(optionsCopy);
-    getPlace(i18n.language).then(res => 
-      setPlace(res)
-    ); 
+    console.log(addedPlaces);
+    
+    if (addedPlaces.length > 0) {
+      setPlace(getRandomPlace())
+    } else {
+      getPlace(i18n.language).then(res => 
+        setPlace(res)
+      ); 
+    }
     
   }, [gameCount]);
+
+  const getRandomPlace = () => {
+    const randomIndex = Math.floor(Math.random() * addedPlaces.length);
+    return addedPlaces[randomIndex];
+  }
 
   const openCard = index => {
     if (options[index - 1].opened) return;

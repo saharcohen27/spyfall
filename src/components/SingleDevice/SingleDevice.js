@@ -7,6 +7,7 @@ import "./SingleDevice.css";
 function SingleDevice() {
   const [players, setPlayers] = useState(6);
   const [spies, setSpies] = useState(2);
+  const [addedPlaces, setAddedPlaces] = useState([]);
   const [isSettingsOpen, setIsSettingsOpen] = useState(true)
 
   const updateSpies = (chg) => {
@@ -36,6 +37,8 @@ function SingleDevice() {
         players={players}
         updatePlayers={updatePlayers}
         updateSpies={updateSpies}
+        addedPlaces={addedPlaces}
+        setAddedPlaces={setAddedPlaces}
         startGame={startGame}
       />
     );
@@ -46,6 +49,7 @@ function SingleDevice() {
       spies={spies}
       players={players}
       openSettings={openSettings}
+      addedPlaces={addedPlaces}
     />
   );
 }
