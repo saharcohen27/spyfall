@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import "./NotFound.css"
 
@@ -11,7 +11,7 @@ function NotFound() {
       <div className="title not-found">
         {t("404 Not Found / How did you get here?")}
       </div>
-      <Link to='/' className="go-back-btn">{t("Go Home")}</Link>
+      <Link to="/" className="go-back-btn">{t("Go Home")}</Link>
     </div>
   );
 }

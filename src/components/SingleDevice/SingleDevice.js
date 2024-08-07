@@ -6,18 +6,18 @@ import "./SingleDevice.css";
 
 function SingleDevice() {
   const [players, setPlayers] = useState(6);
-  const [agents, setAgents] = useState(2);
+  const [spies, setSpies] = useState(2);
   const [isSettingsOpen, setIsSettingsOpen] = useState(true)
 
-  const updateAgents = (chg) => {
-    if (agents + chg === 0 || agents + chg === 17) return;
-    if (agents + chg > players) return;
-    setAgents(prev => prev + chg);
+  const updateSpies = (chg) => {
+    if (spies + chg === 0 || spies + chg === 17) return;
+    if (spies + chg > players) return;
+    setSpies(prev => prev + chg);
   };
 
   const updatePlayers = (chg) => {
     if (players + chg === 0 || players + chg === 17) return;
-    if (agents > players + chg) return;
+    if (spies > players + chg) return;
     setPlayers((prev) => prev + chg);
   };
 
@@ -32,10 +32,10 @@ function SingleDevice() {
   if (isSettingsOpen) {
     return (
       <SingleDeviceSettings
-        agents={agents}
+        spies={spies}
         players={players}
         updatePlayers={updatePlayers}
-        updateAgents={updateAgents}
+        updateSpies={updateSpies}
         startGame={startGame}
       />
     );
@@ -43,7 +43,7 @@ function SingleDevice() {
 
   return (
     <SingleDeviceGame
-      agents={agents}
+      spies={spies}
       players={players}
       openSettings={openSettings}
     />

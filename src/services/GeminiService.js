@@ -15,7 +15,7 @@ const getPlace = async (lang) => {
     const response = await result.response;
     return response.text();
   } catch (error) {
-    console.error('Error making request to OpenAI API:', error.response ? error.response.data : error.message);
+    console.error("Error making request to OpenAI API:", error.response ? error.response.data : error.message);
   }
 };
 
