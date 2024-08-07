@@ -11,7 +11,6 @@ const resources = {
       "How Would You Like to Play?": "איך תרצו לשחק?",
       "Single Device":"מכשיר יחיד",
       "Create Room":"צור חדר",
-      "Spyfall": "הסוכן",
       "Game Settings": "הגדרות משחק",
       "Total players": "כמות שחקנים",
       "Total spies": "כמות סוכנים",
