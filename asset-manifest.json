@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/the-agent/static/css/main.4c9938d0.css",
+    "main.js": "/the-agent/static/js/main.67989c52.js",
+    "static/js/453.e8a20cde.chunk.js": "/the-agent/static/js/453.e8a20cde.chunk.js",
+    "static/media/logo.svg": "/the-agent/static/media/logo.d70578fae3730529b029b4bd03b88027.svg",
+    "index.html": "/the-agent/index.html",
+    "main.4c9938d0.css.map": "/the-agent/static/css/main.4c9938d0.css.map",
+    "main.67989c52.js.map": "/the-agent/static/js/main.67989c52.js.map",
+    "453.e8a20cde.chunk.js.map": "/the-agent/static/js/453.e8a20cde.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4c9938d0.css",
+    "static/js/main.67989c52.js"
+  ]
+}
