@@ -1,4 +1,4 @@
-.single-device-container {
+.page-container {
   background: linear-gradient(90deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
   background: -moz-linear-gradient(90deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
   background: -webkit-linear-gradient(90deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
@@ -17,16 +17,7 @@
   max-width: 800px;
 }
 
-.single-device-container > * {
-  margin:1rem;
-}
-
 .title{
   font-weight: bold;
   font-size: 1.5rem;
-}
-
-.single-device-container > a {
-  text-decoration: none;
-  color:white;
 }

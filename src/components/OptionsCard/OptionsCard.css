@@ -11,5 +11,6 @@
 
 .opened, .opened:hover{
   background-color: rgba(0, 0, 0, 0.45);
+  cursor:not-allowed;
 }
 

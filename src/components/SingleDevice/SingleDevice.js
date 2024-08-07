@@ -5,14 +5,14 @@ import SingleDeviceGame from "../SingleDeviceGame/SingleDeviceGame";
 import "./SingleDevice.css";
 
 function SingleDevice() {
-  const [players, setPlayers] = useState(3);
-  const [agents, setAgents] = useState(1);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(true);
+  const [players, setPlayers] = useState(6);
+  const [agents, setAgents] = useState(2);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(true)
 
   const updateAgents = (chg) => {
     if (agents + chg === 0 || agents + chg === 17) return;
     if (agents + chg > players) return;
-    setAgents((prev) => prev + chg);
+    setAgents(prev => prev + chg);
   };
 
   const updatePlayers = (chg) => {

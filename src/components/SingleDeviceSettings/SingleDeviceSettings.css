@@ -1,4 +1,4 @@
-.settings-container {
+.settings-container, .page-container{
   background: linear-gradient(90deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
   background: -moz-linear-gradient(90deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
   background: -webkit-linear-gradient(90deg, hsla(265, 53%, 29%, 1) 0%, hsla(24, 93%, 73%, 1) 100%);
@@ -21,29 +21,31 @@
   margin:1rem;
 }
 
-
 .setting {
   display: flex;
   flex-direction: row;
   text-align: center;
   justify-content: space-around;
 }
+
 .inc {
   background-color:rgba(0, 128, 0, 0.35);
 }
+
 .dec {
   background-color:rgba(255, 0, 0, 0.35);
 }
+
 .inc:hover {
   background-color:rgba(0, 128, 0, 0.85);
 }
+
 .dec:hover {
   background-color:rgba(255, 0, 0, 0.85);
 }
+
 .change-btn {
   border-radius: 50%;
-}
-.change-btn:hover{
   cursor:pointer;
 }
 
@@ -61,11 +63,9 @@
   text-align: center;
   justify-content: space-between;
   width: 5rem;
-}
-
-.single-device-container > a {
-  text-decoration: none;
-  color:white;
+  background-color: rgba(255, 255, 255, 0.192);
+  padding:0.3rem;
+  border-radius: 0.5rem;
 }
 
 .start-game-btn {
@@ -84,5 +84,4 @@
 .start-game-btn:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.4);
-
 }

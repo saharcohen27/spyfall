@@ -17,7 +17,11 @@ const resources = {
       "Start Game": "התחל משחק",
       "Would you find the Agent?":"תצליחו למצוא את הסוכן?",
       "Player":"שחקן",
-      "Start New Game":"התחל משחק חדש"
+      "Start New Game":"התחל משחק חדש",
+      "You're The Agent": "את/ה הסוכן",
+      "Loading...":"טוען...",
+      "404 Not Found / How did you get here?": "שגיאת 404 / איך הגעת לפה?",
+      "Go Home": "חזור לדף הבית",
     }
   }
 };

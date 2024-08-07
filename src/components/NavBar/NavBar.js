@@ -12,7 +12,7 @@ function NavBar() {
 
   return (
     <header className="navbar-container">
-      <div onClick={() => changeLanguage(() => !isEn)}>
+      <div className="lang-icon" onClick={() => changeLanguage(() => !isEn)}>
         <LanguageIcon fontSize="large" />
       </div>
       <Link to="/">
