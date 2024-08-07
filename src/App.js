@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Home from './components/Home/Home';
 import NotFound from './components/NotFound/NotFound';
@@ -8,7 +8,7 @@ import SingleDevice from './components/SingleDevice/SingleDevice';
 function App() {
   return (
     <Router>
-      <NavBar/>
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/single" element={<SingleDevice />} />
