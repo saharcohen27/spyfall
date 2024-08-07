@@ -16,7 +16,7 @@ function RolePopUp({status, value, handleClose, place}) {
               {value === 'Agent' ? (
                 <h1>{t("You're The Agent")}</h1>
               ) : (
-                  <h1>{t("Place")}: {place}</h1>
+                  <h1>{place}</h1>
               )}
           </div>
       </div>

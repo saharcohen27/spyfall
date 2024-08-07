@@ -33,3 +33,7 @@
 .title-txt{
   font-size: 1.3rem;
 }
+
+.setting-icon{
+  cursor: pointer;
+}
