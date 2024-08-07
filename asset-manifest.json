@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/spyfall/static/css/main.8e484ee5.css",
-    "main.js": "/spyfall/static/js/main.fe952f1d.js",
+    "main.css": "/spyfall/static/css/main.09cca32b.css",
+    "main.js": "/spyfall/static/js/main.c4200d30.js",
     "static/js/453.f97da3de.chunk.js": "/spyfall/static/js/453.f97da3de.chunk.js",
     "static/media/logo.svg": "/spyfall/static/media/logo.d70578fae3730529b029b4bd03b88027.svg",
     "index.html": "/spyfall/index.html",
-    "main.8e484ee5.css.map": "/spyfall/static/css/main.8e484ee5.css.map",
-    "main.fe952f1d.js.map": "/spyfall/static/js/main.fe952f1d.js.map",
+    "main.09cca32b.css.map": "/spyfall/static/css/main.09cca32b.css.map",
+    "main.c4200d30.js.map": "/spyfall/static/js/main.c4200d30.js.map",
     "453.f97da3de.chunk.js.map": "/spyfall/static/js/453.f97da3de.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e484ee5.css",
-    "static/js/main.fe952f1d.js"
+    "static/css/main.09cca32b.css",
+    "static/js/main.c4200d30.js"
   ]
 }
