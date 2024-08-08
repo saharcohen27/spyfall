@@ -9,13 +9,21 @@ import RolePopUp from "../RolePopUp/RolePopUp";
 
 import getPlace from "../../services/GeminiService";
 
-function SingleDeviceGame({players, spies, openSettings, addedPlaces}) {
+import { useSelector } from 'react-redux';
+
+function SingleDeviceGame({openSettings}) {
+  const players = useSelector((state) => state.settings.players);
+  const spies = useSelector((state) => state.settings.spies);
+  const addedPlaces = useSelector((state) => state.settings.addedPlaces);
+
   const { t, i18n} = useTranslation();
+
   const [options, setOptions] = useState(Array(players).fill({role:"Player", opened:false}));
   const [gameCount, setGameCount] = useState(0);
   const [openedRole, setOpenedRole] = useState("")
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
   const [place, setPlace] = useState("");
+
 
   useEffect(() => {
     setPlace(t("Loading..."))
@@ -35,9 +43,7 @@ function SingleDeviceGame({players, spies, openSettings, addedPlaces}) {
     }
 
     // Update the options state with the new array
-    setOptions(optionsCopy);
-    console.log(addedPlaces);
-    
+    setOptions(optionsCopy);    
     if (addedPlaces.length > 0) {
       setPlace(getRandomPlace())
     } else {

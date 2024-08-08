@@ -10,14 +10,16 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import PeopleIcon from "@mui/icons-material/People";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 
-function SingleDeviceSettings({spies, players, updateSpies, updatePlayers, addedPlaces, setAddedPlaces, startGame}) {
-  const { t } = useTranslation();
-  const [ isPopUpOpen, setIsPopUpOpen ] = useState(false);
+import { useSelector, useDispatch } from 'react-redux';
 
-  const removePlace = index => {
-    const newArray = [...addedPlaces.slice(0, index), ...addedPlaces.slice(index + 1)];
-    setAddedPlaces(newArray)
-  }
+function SingleDeviceSettings({startGame}) {
+  const { t } = useTranslation();
+  const players = useSelector((state) => state.settings.players);
+  const spies = useSelector((state) => state.settings.spies);
+  const addedPlaces = useSelector((state) => state.settings.addedPlaces);
+
+  const [ isPopUpOpen, setIsPopUpOpen ] = useState(false);
+  const dispatch = useDispatch();
 
   const addPlace = () => {
     setIsPopUpOpen(true)
@@ -30,7 +32,7 @@ function SingleDeviceSettings({spies, players, updateSpies, updatePlayers, added
   const handleSubmit = val => {
     if (val.length < 2 || val.length > 16) return false;
     setIsPopUpOpen(false)
-    setAddedPlaces(prev => [...prev, val])
+    dispatch({type:"addedPlaces/add", payload:val})
   }
   
   return (
@@ -39,19 +41,19 @@ function SingleDeviceSettings({spies, players, updateSpies, updatePlayers, added
     <div className="settings-container page-container">
       <div className="title">{t("Game Settings")}</div>
       <div className="setting">
-        <label className="setting-label"><PeopleIcon/>{t("Total players")}:</label>
+        <label className="setting-label"><PeopleIcon />{t("Total players")}:</label>
         <div className="setting-area">
-          <RemoveIcon className="change-btn dec" onClick={() => updatePlayers(-1)}/>
+          <RemoveIcon className="change-btn dec" onClick={() => dispatch({type: "players/dec"})}/>
           {players}
-          <AddIcon className="change-btn inc" onClick={() => updatePlayers(1)}/>
+          <AddIcon className="change-btn inc" onClick={() => dispatch({type: "players/inc"})}/>
         </div>
       </div>
       <div className="setting">
         <label className="setting-label"><DirectionsRunIcon/>{t("Total spies")}:</label>
         <div className="setting-area">
-          <RemoveIcon className="change-btn dec" onClick={() => updateSpies(-1)}/>
+          <RemoveIcon className="change-btn dec" onClick={() => dispatch({type: "spies/dec"})}/>
           {spies}
-          <AddIcon className="change-btn inc" onClick={() => updateSpies(1)}/>
+          <AddIcon className="change-btn inc" onClick={() => dispatch({type: "spies/inc"})}/>
         </div>
       </div>
       <div className="add-places-setting">      
@@ -61,7 +63,7 @@ function SingleDeviceSettings({spies, players, updateSpies, updatePlayers, added
             return (
               <div className="added-place">
                 <div className="table-place">{addedPlace}</div>
-                <RemoveIcon className="change-btn delete" onClick={() => removePlace(index)}/>
+                <RemoveIcon className="change-btn delete" onClick={() => dispatch({type:"addedPlaces/remove", payload:index})}/>
               </div>
               )
           })}
