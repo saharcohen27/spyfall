@@ -12,6 +12,8 @@ import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 
 import { useSelector, useDispatch } from 'react-redux';
 
+import { incPlayers, decPlayers, incSpies, decSpies, addPlace, removePlace } from '../../store/reducers/settingsReducer';
+
 function SingleDeviceSettings({startGame}) {
   const { t } = useTranslation();
   const players = useSelector((state) => state.settings.players);
@@ -21,7 +23,7 @@ function SingleDeviceSettings({startGame}) {
   const [ isPopUpOpen, setIsPopUpOpen ] = useState(false);
   const dispatch = useDispatch();
 
-  const addPlace = () => {
+  const openAddPlace = () => {
     setIsPopUpOpen(true)
   }
 
@@ -29,10 +31,10 @@ function SingleDeviceSettings({startGame}) {
     setIsPopUpOpen(false)
   }
 
-  const handleSubmit = val => {
-    if (val.length < 2 || val.length > 16) return false;
+  const handleSubmit = newPlace => {
+    if (newPlace.length < 2 || newPlace.length > 16) return false;
     setIsPopUpOpen(false)
-    dispatch({type:"addedPlaces/add", payload:val})
+    dispatch(addPlace({newPlace}))
   }
   
   return (
@@ -43,27 +45,27 @@ function SingleDeviceSettings({startGame}) {
       <div className="setting">
         <label className="setting-label"><PeopleIcon />{t("Total players")}:</label>
         <div className="setting-area">
-          <RemoveIcon className="change-btn dec" onClick={() => dispatch({type: "players/dec"})}/>
+          <RemoveIcon className="change-btn dec" onClick={() => dispatch(decPlayers())}/>
           {players}
-          <AddIcon className="change-btn inc" onClick={() => dispatch({type: "players/inc"})}/>
+          <AddIcon className="change-btn inc" onClick={() => dispatch(incPlayers())}/>
         </div>
       </div>
       <div className="setting">
         <label className="setting-label"><DirectionsRunIcon/>{t("Total spies")}:</label>
         <div className="setting-area">
-          <RemoveIcon className="change-btn dec" onClick={() => dispatch({type: "spies/dec"})}/>
+          <RemoveIcon className="change-btn dec" onClick={() => dispatch(decSpies())}/>
           {spies}
-          <AddIcon className="change-btn inc" onClick={() => dispatch({type: "spies/inc"})}/>
+          <AddIcon className="change-btn inc" onClick={() => dispatch(incSpies())}/>
         </div>
       </div>
       <div className="add-places-setting">      
-          <button onClick={addPlace} className="add-place-btn"><AddIcon fontSize="small" /> {t("Add Places")}</button>
+          <button onClick={openAddPlace} className="add-place-btn"><AddIcon fontSize="small" /> {t("Add Places")}</button>
           {addedPlaces.length !== 0 && <div className="added-places">
             {addedPlaces.map((addedPlace, index) => {
             return (
               <div className="added-place">
                 <div className="table-place">{addedPlace}</div>
-                <RemoveIcon className="change-btn delete" onClick={() => dispatch({type:"addedPlaces/remove", payload:index})}/>
+                <RemoveIcon className="change-btn delete" onClick={() => dispatch(removePlace({index}))}/>
               </div>
               )
           })}
