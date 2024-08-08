@@ -6,25 +6,25 @@ const initialState = {
 
 function settingsReducer(state = initialState, action) {
   switch(action.type) {
-    case "players/inc": 
+    case "players/inc":
       return ({
         ...state,
-        players: state.players + 1
+        players: state.players + 1 >= 17 ? state.players : state.players + 1
       })
     case "players/dec": 
       return ({
         ...state,
-        players: state.players - 1
+        players: (state.players - 1 < state.spies || state.players - 1 <= 0) ? state.players : state.players - 1
       })
     case "spies/inc": 
       return ({
         ...state,
-        spies: state.spies + 1
+        spies: state.spies + 1 > state.players ? state.spies : state.spies + 1
       })
     case "spies/dec": 
       return ({
         ...state,
-        spies: state.spies - 1
+        spies: state.spies - 1 <= 0 ? state.spies : state.spies - 1 
       })
     case "addedPlaces/remove": 
       return ({
