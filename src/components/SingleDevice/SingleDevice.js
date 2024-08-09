@@ -7,12 +7,12 @@ import "./SingleDevice.css";
 function SingleDevice() {
   const [spies, setSpies] = useState(2);
   const [addedPlaces, setAddedPlaces] = useState([]);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(true)
+  const [isSettingsOpen, setIsSettingsOpen] = useState(true);
 
   const updateSpies = (chg) => {
     if (spies + chg === 0 || spies + chg === 17) return;
     // if (spies + chg > players) return;
-    setSpies(prev => prev + chg);
+    setSpies((prev) => prev + chg);
   };
 
   const startGame = () => {

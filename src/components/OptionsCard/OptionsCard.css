@@ -1,6 +1,6 @@
-.card-option{
+.card-option {
   background-color: rgba(255, 255, 255, 0.15);
-  padding:0.5rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
 }
 
@@ -9,8 +9,8 @@
   background-color: rgba(255, 255, 255, 0.45);
 }
 
-.opened, .opened:hover{
+.opened,
+.opened:hover {
   background-color: rgba(0, 0, 0, 0.45);
-  cursor:not-allowed;
+  cursor: not-allowed;
 }
-

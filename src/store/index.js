@@ -1,6 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
 
-import settingsReducer from './reducers/settingsReducer';
+import settingsReducer from "./reducers/settingsReducer";
 
 const store = configureStore({
   reducer: {
@@ -10,10 +10,10 @@ const store = configureStore({
     settings: {
       players: 6,
       spies: 2,
-      addedPlaces: []
+      addedPlaces: [],
     },
     devTools: false,
-  }
+  },
 });
 
 export default store;
