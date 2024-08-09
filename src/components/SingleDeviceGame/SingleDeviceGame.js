@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useSelector } from 'react-redux';
 
 import "./SingleDeviceGame.css"
 
@@ -9,7 +10,7 @@ import RolePopUp from "../RolePopUp/RolePopUp";
 
 import getPlace from "../../services/GeminiService";
 
-import { useSelector } from 'react-redux';
+import isEmptyArray from '../../utils'
 
 function SingleDeviceGame({openSettings}) {
   const players = useSelector((state) => state.settings.players);
@@ -44,7 +45,7 @@ function SingleDeviceGame({openSettings}) {
 
     // Update the options state with the new array
     setOptions(optionsCopy);    
-    if (addedPlaces.length > 0) {
+    if (!isEmptyArray(addedPlaces)) {
       setPlace(getRandomPlace())
     } else {
       getPlace(i18n.language).then(res => 

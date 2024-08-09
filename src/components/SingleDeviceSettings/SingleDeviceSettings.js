@@ -37,7 +37,7 @@ function SingleDeviceSettings({startGame}) {
     dispatch(addPlace({newPlace}))
   }
 
-  const handleRemove = index => {
+  const handleAdd = index => {
     dispatch(removePlace({index}))
   }
   
@@ -62,7 +62,7 @@ function SingleDeviceSettings({startGame}) {
           <AddIcon className="change-btn inc" onClick={() => dispatch(incSpies())}/>
         </div>
       </div>
-      <AddPlaces openAddPlace={openAddPlace} addedPlaces={addedPlaces} handleRemove={index => handleRemove(index)} />
+      <AddPlaces openAddPlace={openAddPlace} addedPlaces={addedPlaces} handleRemove={index => handleAdd(index)} />
       <div className="start-game-btn" onClick={startGame}>{t("Start Game")}</div>
     </div>
     </>

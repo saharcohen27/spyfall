@@ -7,6 +7,8 @@ import RemoveIcon from "@mui/icons-material/Remove";
 
 import './AddPlaces.css'
 
+import isEmptyArray from '../../utils'
+
 function AddedPlace({addedPlace, index, handleRemove}){
   return (
     <div className="added-place">
@@ -26,7 +28,7 @@ function AddPlaces({handleRemove, addedPlaces, openAddPlace}) {
         {t("Add Places")}
       </button>
 
-      { addedPlaces.length !== 0 && 
+      { !isEmptyArray(addedPlaces) && 
         <div className="added-places">
           {
             addedPlaces.map((addedPlace, index) => (

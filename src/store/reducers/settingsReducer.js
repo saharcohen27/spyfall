@@ -1,10 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { removeItem, addItem } from '../../utils';
+
 const initialState = {
   players: 6,
   spies:2,
   addedPlaces:[]
 };
+
 
 const settingsSlice = createSlice({
   name: 'settings',
@@ -27,10 +30,10 @@ const settingsSlice = createSlice({
           state.spies -= 1;
       },
       addPlace: (state, action) => {
-        state.addedPlaces = [...state.addedPlaces, action.payload.newPlace]
+        state.addedPlaces = addItem(state.addedPlaces, action.payload.newPlace)
       },
       removePlace: (state, action) => {
-        state.addedPlaces = [...state.addedPlaces.slice(0, action.payload.index), ...state.addedPlaces.slice(action.payload.index + 1)]
+        state.addedPlaces = removeItem(state.addedPlaces, action.payload.index)
       }
   },
 });
