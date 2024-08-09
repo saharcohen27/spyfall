@@ -1,9 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 
-import "./SingleDeviceSettings.css"
-
 import InputPopUp from '../InputPopUp/InputPopUp'
+import AddPlaces from "../AddPlaces/AddPlaces";
+
+import "./SingleDeviceSettings.css"
 
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -11,7 +12,6 @@ import PeopleIcon from "@mui/icons-material/People";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 
 import { useSelector, useDispatch } from 'react-redux';
-
 import { incPlayers, decPlayers, incSpies, decSpies, addPlace, removePlace } from '../../store/reducers/settingsReducer';
 
 function SingleDeviceSettings({startGame}) {
@@ -32,9 +32,13 @@ function SingleDeviceSettings({startGame}) {
   }
 
   const handleSubmit = newPlace => {
-    if (newPlace.length < 2 || newPlace.length > 16) return false;
+    if (newPlace.length < 2 || newPlace.length > 30) return false;
     setIsPopUpOpen(false)
     dispatch(addPlace({newPlace}))
+  }
+
+  const handleRemove = index => {
+    dispatch(removePlace({index}))
   }
   
   return (
@@ -58,20 +62,7 @@ function SingleDeviceSettings({startGame}) {
           <AddIcon className="change-btn inc" onClick={() => dispatch(incSpies())}/>
         </div>
       </div>
-      <div className="add-places-setting">      
-          <button onClick={openAddPlace} className="add-place-btn"><AddIcon fontSize="small" /> {t("Add Places")}</button>
-          {addedPlaces.length !== 0 && <div className="added-places">
-            {addedPlaces.map((addedPlace, index) => {
-            return (
-              <div className="added-place">
-                <div className="table-place">{addedPlace}</div>
-                <RemoveIcon className="change-btn delete" onClick={() => dispatch(removePlace({index}))}/>
-              </div>
-              )
-          })}
-        </div>
-        }
-      </div>
+      <AddPlaces openAddPlace={openAddPlace} addedPlaces={addedPlaces} handleRemove={index => handleRemove(index)} />
       <div className="start-game-btn" onClick={startGame}>{t("Start Game")}</div>
     </div>
     </>
