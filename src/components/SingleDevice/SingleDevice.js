@@ -28,7 +28,6 @@ function SingleDevice() {
 
   return (
     <SingleDeviceGame
-      spies={spies}
       openSettings={openSettings}
       addedPlaces={addedPlaces}
     />

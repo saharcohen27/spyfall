@@ -1,8 +1,5 @@
 import { useTranslation } from "react-i18next";
 
-import PeopleIcon from "@mui/icons-material/People";
-import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
-
 import "./RolePopUp.css";
 
 function RolePopUp({ status, value, handleClose, place }) {
