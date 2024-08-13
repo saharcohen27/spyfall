@@ -4,6 +4,8 @@ import { useState } from "react";
 import InputPopUp from "../InputPopUp/InputPopUp";
 import AddPlaces from "../AddPlaces/AddPlaces";
 
+import { isValidPlace } from "../../utils";
+
 import "./SingleDeviceSettings.css";
 
 import AddIcon from "@mui/icons-material/Add";
@@ -39,9 +41,10 @@ function SingleDeviceSettings({ startGame }) {
   };
 
   const handleSubmit = (newPlace) => {
-    if (newPlace.length < 2 || newPlace.length > 30) return false;
+    const trimedNewPlace = newPlace.trim();
+    if (!isValidPlace(trimedNewPlace)) return;
     setIsPopUpOpen(false);
-    dispatch(addPlace({ newPlace }));
+    dispatch(addPlace({ trimedNewPlace }));
   };
 
   const handleAdd = (index) => {
