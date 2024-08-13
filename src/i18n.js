@@ -11,7 +11,6 @@ const resources = {
       "How Would You Like to Play?": "איך תרצו לשחק?",
       "Single Device":"מכשיר יחיד",
       "Create Room":"צור חדר",
-      "Spyfall": "הסוכן",
       "Game Settings": "הגדרות משחק",
       "Total players": "כמות שחקנים",
       "Total spies": "כמות סוכנים",
@@ -23,6 +22,8 @@ const resources = {
       "Loading...":"טוען...",
       "404 Not Found / How did you get here?": "שגיאת 404 / איך הגעת לפה?",
       "Go Home": "חזור לדף הבית",
+      "Add Places": "הוסף מקומות",
+      "Add": "הוסף",
     }
   }
 };
