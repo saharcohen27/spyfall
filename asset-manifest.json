@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/spyfall/static/css/main.09cca32b.css",
-    "main.js": "/spyfall/static/js/main.c4200d30.js",
-    "static/js/453.f97da3de.chunk.js": "/spyfall/static/js/453.f97da3de.chunk.js",
-    "static/media/logo.svg": "/spyfall/static/media/logo.d70578fae3730529b029b4bd03b88027.svg",
-    "index.html": "/spyfall/index.html",
-    "main.09cca32b.css.map": "/spyfall/static/css/main.09cca32b.css.map",
-    "main.c4200d30.js.map": "/spyfall/static/js/main.c4200d30.js.map",
-    "453.f97da3de.chunk.js.map": "/spyfall/static/js/453.f97da3de.chunk.js.map"
+    "main.css": "/single/static/css/main.7e2b435d.css",
+    "main.js": "/single/static/js/main.2649be84.js",
+    "static/js/453.f97da3de.chunk.js": "/single/static/js/453.f97da3de.chunk.js",
+    "static/media/logo.svg": "/single/static/media/logo.d70578fae3730529b029b4bd03b88027.svg",
+    "index.html": "/single/index.html",
+    "main.7e2b435d.css.map": "/single/static/css/main.7e2b435d.css.map",
+    "main.2649be84.js.map": "/single/static/js/main.2649be84.js.map",
+    "453.f97da3de.chunk.js.map": "/single/static/js/453.f97da3de.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.09cca32b.css",
-    "static/js/main.c4200d30.js"
+    "static/css/main.7e2b435d.css",
+    "static/js/main.2649be84.js"
   ]
 }
