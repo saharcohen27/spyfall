@@ -30,13 +30,6 @@
   max-width: 800px;
 }
 
-.options-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
-  padding: 10px;
-}
-
 .with-setting-icon {
   display: flex;
   justify-content: space-between;
@@ -46,8 +39,230 @@
 
 .title-txt {
   font-size: 1.3rem;
+  font-weight: bold;
 }
 
 .setting-icon {
   cursor: pointer;
+  border: 0;
+  background: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+
+.phase-instruction {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.discussion-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.discussion-banner h2 {
+  margin: 0;
+}
+
+.discussion-banner p {
+  margin: 0;
+}
+
+.discussion-hint {
+  opacity: 0.85;
+  font-size: 0.9rem;
+}
+
+/* --- Game timer (always visible while the round is active) --- */
+
+.game-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  padding: 0.75rem 0 0.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.game-timer-value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+.game-timer-controls {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.game-timer-up {
+  font-size: 1.1rem;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+.timer-btn {
+  border: 0;
+  font: inherit;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0px 0px 20px -10px #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.timer-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.timer-btn-stop {
+  background-color: rgba(255, 90, 90, 0.35);
+}
+
+.timer-btn-stop:hover {
+  background-color: rgba(255, 90, 90, 0.55);
+}
+
+/* --- Player card grid --- */
+
+.player-card-grid {
+  margin: 0 auto 1.5rem;
+}
+
+.player-card {
+  border-radius: 1rem !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: white !important;
+}
+
+.player-card--viewed {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  opacity: 0.6;
+}
+
+.player-card-action {
+  height: 100%;
+}
+
+.player-card-action.Mui-disabled {
+  opacity: 1;
+}
+
+.player-card-content {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 1rem 0.5rem !important;
+  min-height: 5.5rem;
+  text-align: center;
+}
+
+.player-card-icon {
+  font-size: 1.75rem !important;
+}
+
+.player-card-label {
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+.player-card-status {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+/* --- Reveal modal --- */
+
+.reveal-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 88%;
+  max-width: 360px;
+  background: hsla(265, 45%, 22%, 1);
+  color: white;
+  border-radius: 1rem;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  text-align: center;
+}
+
+.reveal-modal-title {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+.reveal-modal-secret {
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-word;
+}
+
+.reveal-modal-secret-text {
+  margin: 0;
+}
+
+.reveal-modal-hint {
+  margin: 0;
+  opacity: 0.75;
+  font-size: 0.95rem;
+}
+
+.reveal-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+.hide-btn,
+.hold-reveal-btn {
+  border: 0;
+  font: inherit;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: 0px 0px 20px -10px #ffffff;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.hide-btn:hover,
+.hold-reveal-btn:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.hold-reveal-btn.is-holding {
+  background-color: rgba(255, 255, 255, 0.5);
 }

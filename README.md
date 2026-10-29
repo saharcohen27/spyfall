@@ -1,70 +1,134 @@
-# Getting Started with Create React App
+# Spyfall
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A browser-based, pass-the-device version of **Spyfall** for people playing
+together in the same room. It supports English and Hebrew, configurable
+round settings, custom locations, and offline installation as a PWA.
 
-## Available Scripts
+## How to play
 
-In the project directory, you can run:
+1. Open the game on one phone, tablet, or computer.
+2. Choose the number of players, spies, and timer duration.
+3. Optionally add custom locations, then select **Start Game**.
+4. Pass the device around. Each player taps only their numbered card.
+5. The card opens privately:
+   - regular players see the shared secret location;
+   - spies see **"You are the Spy."**
+6. The player selects **"Got it, hide card"** before passing the device.
+   Viewed cards are locked during this initial reveal phase.
+7. After everyone has viewed their card, discussion begins. Players can tap
+   their own card and hold the reveal button for a private reminder.
+8. The clock is visible throughout the round. It can be paused, resumed, or
+   stopped. At `00:00`, the game displays **"Time's up!"** without exposing
+   any roles or locations.
+9. Select **New round** to reshuffle roles and choose another location.
 
-### `npm start`
+The locations button opens a searchable reference list containing all
+built-in and custom locations.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Privacy
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Secret information is shown only inside the selected player's reveal
+dialog. Closing the dialog removes the secret from view before the device
+is passed. The card grid, discussion screen, timer, and locations reference
+never identify the spy or reveal the active location.
 
-### `npm test`
+## Settings and persistence
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Redux stores the player count, spy count, timer duration, and custom
+locations. These settings persist in `localStorage`, so they survive page
+refreshes.
 
-### `npm run build`
+Custom locations:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- must contain 2–30 characters;
+- cannot duplicate an existing built-in or custom location;
+- are included in future rounds;
+- can be removed from the settings screen.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Built-in locations are defined in
+[`src/data/locations.js`](src/data/locations.js), with English and Hebrew
+names.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Languages
 
-### `npm run eject`
+The language selector supports English (LTR) and Hebrew (RTL) through
+`i18next`. The document direction updates automatically when the language
+changes.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Offline PWA
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The production build includes a Workbox service worker that precaches the
+game bundle, styles, icons, and manifest. After the first successful online
+load, the installed game can launch and run offline. Player settings remain
+available through browser storage.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Local development
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Requirements: Node.js and npm.
 
-## Learn More
+```bash
+npm install
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Open [http://localhost:3000/single](http://localhost:3000/single).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Tests
 
-### Code Splitting
+```bash
+npm test -- --watchAll=false
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The tests cover game rules, location data, persisted settings, timer
+behavior, private card reveals, discussion reminders, and round resets.
 
-### Analyzing the Bundle Size
+## Production build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm run build
+```
 
-### Making a Progressive Web App
+This creates the optimized `build/` directory, bundles the service worker,
+and injects the precache manifest.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+GitHub Pages deployment is available through:
 
-### Advanced Configuration
+```bash
+npm run deploy
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Before deploying from a fork, update the `homepage` field in `package.json`
+to the fork's GitHub Pages URL.
 
-### Deployment
+## Project structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```text
+public/
+  manifest.json                     PWA metadata and icons
+scripts/
+  generate-sw.js                    Service-worker build and precache step
+src/
+  data/locations.js                 Built-in EN/HE location catalog
+  game/gameLogic.js                 Pure game rules and validation
+  components/
+    NavBar/                         Language selector and locations access
+    LocationsModal/                 Searchable location reference
+    SingleDeviceSettings/           Player, spy, timer, and location settings
+    SingleDeviceGame/               Card grid, private reveal, and timer
+  hooks/useLocationSearch.js        Shared location filtering
+  store/
+    reducers/settingsReducer.js     Persistent game settings
+    persistence.js                  localStorage load/save
+  service-worker.js                 Workbox offline behavior
+  serviceWorkerRegistration.js      Browser service-worker registration
+```
 
-### `npm run build` fails to minify
+## Current limitations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Multiplayer rooms are not implemented; the game is local,
+  pass-the-device play only.
+- Voting, scoring, and winner screens are handled by the players, not the
+  app.
+- There is no full round history.
+- The project still uses Create React App 5, which is no longer actively
+  maintained.
